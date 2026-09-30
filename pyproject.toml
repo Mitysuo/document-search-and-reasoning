@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "document-search-and-reasoning"
+version = "0.1.0"
+description = "Projeto de pesquisa e raciocínio de documentos"
+authors = ["Vinicius <viniciusfurukava@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+rank-bm25 = "^0.2.2"
+mistralai = "^3.0.0"
+docling = "^2.131.0"
+
+[tool.poetry.group.test.dependencies]
+black = "24.3.0"
+flake8 = "7.0.0"
+isort = "5.13.2"
+pre-commit = "3.8.0"
+pytest = "8.2.2"
+coverage = "7.6.1"
+
+[tool.flake8]
+select = ['B', 'C', 'E', 'F', 'W', 'T4', 'B9']
+ignore = ['E202', 'E203', 'E266', 'E501', 'W503', 'F403', 'F401', 'E712', 'E226', 'E722', 'W605', 'F405', 'E721', 'E704']
+max-line-length = 88
+max-complexity = 37
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.taplo.formatting]
+column_width = 88
+array_auto_expand = true
+array_auto_collapse = true
+array_trailing_comma = true
+reorder_keys = false
+reorder_arrays = false
+indent_string = "  "
+trailing_newline = true
+crlf = false
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
